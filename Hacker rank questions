@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+      int Xa=0.0,Xb=0.0,Ya=1.0,Yb=1.0;
+      int Xp=1.0,Xq=0.0,Yp=2.0,Yq=1.0;
+      float slope_1,slope_2;
+      if(Xb-Xa==0.0||Yb-Ya==0.0)
+          printf("no");
+      else
+      {
+          slope_1=(float) (Yb-Ya) / (float) (Xb-Xa);
+          slope_2=(float) (Yq-Yp) / (float) (Xq-Xp);
+         if(slope_1==slope_2)
+          printf("yes");
+      }
+     
+      
+    return 0;
+}
