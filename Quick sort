@@ -1,0 +1,67 @@
+#include<stdio.h>
+void quicksort(int array[25],int first,int last)
+//This is the called function for quick sort 
+{
+   int i, j, pivot, temp; 
+   //These are the varibles used in program
+
+   if(first<last){
+  //This statement says that if the given array the first element is less than high element 
+      pivot=first;
+  //Then take the first element for the pivot
+      i=first;
+  //Then store the first variable index in variable i
+      j=last;
+  //It will store the last element index in the variable j
+
+      while(i<j)
+      {
+         while(array[i]<=array[pivot]&&i<last)
+ //This statement is saying that the array of the first index value in less than or equal to pivot or less than last element index
+            i++;
+         while(array[j]>array[pivot])
+//Here then the condition it will check the high element then it is correct so we will check the before element 
+            j--;
+//For this we will decrease the j value 
+         if(i<j)
+         { //These three are swapping statements
+            temp=array[i];
+//Then here we will swap the array element to temporary variable
+            array[i]=array[j];
+//By above statement now the i was empty so send the j value to i
+            array[j]=temp;
+//So by above j is empty so send the temporary variable value to j
+         }
+      }
+
+      temp=array[pivot];
+      array[pivot]=array[j];
+      array[j]=temp;
+      quicksort(array,first,j-1);
+      quicksort(array,j+1,last);
+
+   }
+}
+
+int main()
+{
+   int i, count, array[25];
+
+   printf("How many elements are u going to enter?: ");
+   scanf("%d",&count);
+//this statement will store the number of elements in the array
+   printf("Enter %d elements: ", count);
+   for(i=0;i<count;i++)
+      scanf("%d",&array[i]);
+//This statement is used to store the values in an array
+   
+   quicksort(array,0,count-1);
+//This is the calling function for quick sort
+
+   printf("Order of Sorted elements: ");
+   for(i=0;i<count;i++)
+      printf("%d",array[i]);
+//This statement will help to print the sorted element
+
+   return 0;
+}
